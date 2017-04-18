@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/fymNodeApi",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "f8AVAMAnO5baJx/A6IAaskPguymY3MioPzDYtNPA3Vr9KBAUzj9kXvmAhTLoUWvvFe9Nmk90SQJoFGXG7s8fIA=="
+    },
+    "local": {}
+  }
+}
