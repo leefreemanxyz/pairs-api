@@ -1,4 +1,5 @@
 'use strict';
+const makeAdmin = require('./makeAdmin');
 const pairs = require('./pairs');
 const authentication = require('./authentication');
 const user = require('./user');
@@ -12,4 +13,5 @@ module.exports = function() {
   app.configure(authentication);
   app.configure(user);
   app.configure(pairs);
+  app.configure(makeAdmin);
 };
