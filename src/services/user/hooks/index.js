@@ -1,5 +1,7 @@
 'use strict';
 
+const makeAdmin = require('./makeAdmin');
+
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
@@ -15,7 +17,7 @@ exports.before = {
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    //auth.restrictToOwner({ ownerField: '_id' })
   ],
   create: [
     auth.hashPassword()
@@ -24,19 +26,21 @@ exports.before = {
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    //auth.restrictToOwner({ ownerField: '_id' }),
+    makeAdmin()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    //auth.restrictToOwner({ ownerField: '_id' }),
+    makeAdmin()
   ],
   remove: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
+    //auth.restrictToOwner({ ownerField: '_id' })
   ]
 };
 
