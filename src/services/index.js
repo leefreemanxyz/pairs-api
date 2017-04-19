@@ -1,4 +1,5 @@
 'use strict';
+const batch = require('./batch');
 const pair = require('./pair');
 const authentication = require('./authentication');
 const user = require('./user');
@@ -12,4 +13,5 @@ module.exports = function() {
   app.configure(authentication);
   app.configure(user);
   app.configure(pair);
+  app.configure(batch);
 };

@@ -1,0 +1,22 @@
+'use strict';
+
+// src/services/batch/hooks/restrictToAdmin.js
+//
+// Use this hook to manipulate incoming or outgoing data.
+// For more information on hooks see: http://docs.feathersjs.com/hooks/readme.html
+const errors = require('feathers-errors');
+
+const defaults = {};
+
+module.exports = function(options) {
+  options = Object.assign({}, defaults, options);
+
+  return function(hook) {
+    console.log(hook.params)
+    if(!hook.params.user.admin){
+      throw new errors.Forbidden('You need to be an admin to do that')
+    }
+    console.log('is user admin?')
+    console.log(hook.params.user.admin)
+  };
+};
