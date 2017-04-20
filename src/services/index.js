@@ -1,4 +1,5 @@
 'use strict';
+const publishedPair = require('./publishedPair');
 const batch = require('./batch');
 const pair = require('./pair');
 const authentication = require('./authentication');
@@ -14,4 +15,5 @@ module.exports = function() {
   app.configure(user);
   app.configure(pair);
   app.configure(batch);
+  app.configure(publishedPair);
 };
