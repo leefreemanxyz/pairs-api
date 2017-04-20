@@ -6,6 +6,9 @@ const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 
+const populateBatches = hooks.populate('batchDetails', {service: 'batches', field: 'students'})
+
+
 exports.before = {
   all: [],
   find: [
@@ -45,7 +48,7 @@ exports.before = {
 };
 
 exports.after = {
-  all: [hooks.remove('password')],
+  all: [hooks.remove('password'), populateBatches],
   find: [],
   get: [],
   create: [],

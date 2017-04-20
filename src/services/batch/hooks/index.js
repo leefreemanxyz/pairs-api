@@ -8,6 +8,9 @@ const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 
+const populateStudents = hooks.populate('studentsDetails', {service: 'users', field: 'students'})
+
+
 exports.before = {
   all: [
     auth.verifyToken(),
@@ -23,7 +26,7 @@ exports.before = {
 };
 
 exports.after = {
-  all: [],
+  all: [populateStudents],
   find: [],
   get: [],
   create: [],

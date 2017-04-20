@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const batchSchema = new Schema({
+  name: {type:String, required:true},
   startDate: {type:Date, required:true},
   endDate: {type:Date, required:true},
   students: [Schema.Types.ObjectId],
